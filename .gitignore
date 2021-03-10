@@ -1,0 +1,7 @@
+node_modules
+*.log
+build
+.cache
+public
+.vscode
+.env
