@@ -1,8 +1,9 @@
 import React from 'react'
-import { useTheme, css, cx } from 'services/styles'
+import { css, cx, makeStyles } from 'services/styles'
 import { ExtendableStyles, Testable } from 'utils/types'
 import { Icon } from '@mdi/react'
 import { mdiInstagram, mdiLinkedin, mdiTwitter, mdiAccountQuestion } from '@mdi/js'
+import { Theme } from 'design-system'
 
 export type SocialLinkProps = ExtendableStyles &
   Testable & {
@@ -12,7 +13,7 @@ export type SocialLinkProps = ExtendableStyles &
   }
 
 export function SocialLink({ className, href, name, icon, ...otherProps }: SocialLinkProps) {
-  const classes = useStyles(icon)
+  const classes = useStyles()
   return (
     <a className={cx(className, classes.link)} href={href} target="_blank" {...otherProps}>
       <i className={classes.icon} aria-label={name}>
@@ -35,27 +36,16 @@ function getIconPathData(icon: string) {
   }
 }
 
-function useStyles(iconLink: string) {
-  const { spacing, palette } = useTheme()
-  return {
-    link: css`
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: ${spacing(5)};
-      height: ${spacing(5)};
-      border-radius: 50%;
-      background-color: ${palette.primary.main};
-      cursor: pointer;
-
-      &:hover {
-        background-color: ${palette.primary.accent};
-      }
-    `,
-    icon: css`
-      color: white;
-      width: ${spacing(2.5)};
-      height: ${spacing(2.5)};
-    `,
-  }
-}
+const useStyles = makeStyles(({ spacing, palette }: Theme) => ({
+  link: css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  `,
+  icon: css`
+    color: currentColor;
+    width: ${spacing(4)};
+    height: ${spacing(4)};
+  `,
+}))

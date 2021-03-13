@@ -14,7 +14,7 @@ export function SocialLinkList({ className, ...otherProps }: SocialLinkListProps
     <ul className={cx(className, classes.container)} {...otherProps}>
       {socialLinks.map(({ node: { linkUrl, iconName, slug } }) => (
         <li className={classes.socialLink}>
-          <SocialLink key={slug} name={slug} href={linkUrl} icon={iconName} />
+          <SocialLink className={classes.internalLink} key={slug} name={slug} href={linkUrl} icon={iconName} />
         </li>
       ))}
     </ul>
@@ -38,14 +38,28 @@ function useSocialLinkList() {
   return rawData.allContentfulSocialLink.edges
 }
 
-const useStyles = makeStyles(({ spacing }: Theme) => ({
-  container: css`
-    display: flex;
-  `,
-  socialLink: css`
-    margin-right: ${spacing()};
-    &:last-child {
-      margin-right: 0;
-    }
-  `,
-}))
+const useStyles = makeStyles(({ spacing }: Theme) => {
+  return {
+    container: css`
+      display: flex;
+      &:hover {
+        & > li {
+          opacity: 0.5;
+        }
+      }
+    `,
+    socialLink: css`
+      margin-right: ${spacing(0.5)};
+      transition: opacity 200ms ease-in-out;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        opacity: 1 !important;
+      }
+    `,
+    internalLink: css`
+      color: currentColor !important;
+    `,
+  }
+})
