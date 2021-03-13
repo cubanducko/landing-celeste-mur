@@ -13,8 +13,8 @@ export function SocialLinkList({ className, ...otherProps }: SocialLinkListProps
   return (
     <ul className={cx(className, classes.container)} {...otherProps}>
       {socialLinks.map(({ node: { linkUrl, iconName, slug } }) => (
-        <li className={classes.socialLink}>
-          <SocialLink className={classes.internalLink} key={slug} name={slug} href={linkUrl} icon={iconName} />
+        <li key={slug} className={classes.socialLink}>
+          <SocialLink className={classes.internalLink} name={slug} href={linkUrl} icon={iconName} />
         </li>
       ))}
     </ul>
