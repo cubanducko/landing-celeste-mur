@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'services/styles'
 import { WithChildren } from 'utils/types'
 import { Footer } from './Footer.component'
-import { Header } from './Header.component'
+import { Header } from './Header'
 import { LibraryProvider } from './LibraryProvider.component'
 import { Main } from './Main.component'
 

@@ -1,3 +1,4 @@
+import { SocialLinkList } from 'components/SocialLinks/SocialLinkList.component'
 import { Theme } from 'design-system'
 import React from 'react'
 import { css, cx, makeStyles } from 'services/styles'
@@ -10,15 +11,19 @@ export function Footer({ className, ...otherProps }: FooterProps) {
 
   return (
     <footer className={cx(className, classes.footer)} {...otherProps}>
-      <div className={classes.footerWrapper}>Celeste Mur</div>
+      <div className={classes.footerWrapper}>
+        <SocialLinkList className={classes.socialLink} />
+        <span className={classes.copyright}>Celeste Mur</span>
+      </div>
     </footer>
   )
 }
 
-const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
+const useStyles = makeStyles(({ spacing, palette, breakpoints }: Theme) => ({
   footer: css`
     display: flex;
     justify-content: center;
+    background-color: ${palette.secondary.main};
   `,
   footerWrapper: css`
     display: flex;
@@ -37,4 +42,8 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
       width: ${spacing(147)};
     }
   `,
+  socialLink: css`
+    margin-bottom: ${spacing()};
+  `,
+  copyright: css``,
 }))
