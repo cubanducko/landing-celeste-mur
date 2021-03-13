@@ -1,5 +1,8 @@
 {
   "title": "Celeste Mur",
+  "footer": {
+    "copyright": "COPYRIGHT © {year}. TODOS LOS DERECHOS RESERVADOS"
+  },
   "header": {
     "work": "Trabajo",
     "about": "Sobre mi",

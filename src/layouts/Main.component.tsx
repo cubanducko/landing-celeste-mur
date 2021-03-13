@@ -18,7 +18,7 @@ export function Main({ className, children, ...otherProps }: MainProps) {
 const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   content: css`
     margin: 0 auto;
-    padding: ${spacing(0, 2)};
+    padding: ${spacing(2)};
     padding-bottom: ${spacing(15)};
 
     @media (min-width: ${breakpoints.sm}) {

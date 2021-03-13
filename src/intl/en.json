@@ -1,5 +1,8 @@
 {
   "title": "Celeste Mur",
+  "footer": {
+    "copyright": "COPYRIGHT © {year}. ALL RIGHTS RESERVED"
+  },
   "header": {
     "work": "Work",
     "about": "About",
