@@ -20,6 +20,20 @@ module.exports = {
     'gatsby-plugin-nprogress',
     `gatsby-plugin-layout`,
     'gatsby-plugin-emotion',
+    'gatsby-plugin-webpack-bundle-analyser-v2',
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: [`en`, `es`],
+        // language file path
+        defaultLanguage: `es`,
+        // option to redirect to `/ko` when connecting `/`
+        redirect: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
