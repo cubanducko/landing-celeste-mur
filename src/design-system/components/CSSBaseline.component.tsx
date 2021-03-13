@@ -21,6 +21,17 @@ export function CSSBaseline() {
           color: ${palette.typography.main};
         }
 
+        ul,
+        ol,
+        li {
+          padding: 0;
+          margin: 0;
+        }
+
+        li {
+          list-style: none;
+        }
+
         button,
         input[type='submit'],
         input[type='reset'] {

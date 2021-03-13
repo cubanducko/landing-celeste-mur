@@ -1,6 +1,6 @@
 import Typography from 'typography'
-import fairyGateTheme from 'typography-theme-moraga'
+import moragaTheme from 'typography-theme-moraga'
 
-const typography = new Typography(fairyGateTheme)
+const typography = new Typography(moragaTheme)
 export const { scale, rhythm, options } = typography
 export default typography
