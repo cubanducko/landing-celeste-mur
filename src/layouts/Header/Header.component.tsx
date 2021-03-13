@@ -63,6 +63,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   headerWrapper: css`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: ${spacing(2)};
     margin: 0 auto;
     @media (min-width: ${breakpoints.sm}) {
@@ -78,8 +79,8 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
     }
   `,
   logo: css`
-    width: ${spacing(6)};
-    height: ${spacing(6)};
+    width: ${spacing(8)};
+    height: 'auto';
   `,
   headerLinks: css`
     flex: 0 0 auto;

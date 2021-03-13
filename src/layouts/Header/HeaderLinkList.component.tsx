@@ -20,7 +20,7 @@ export function HeaderLinkList({ className, links, ...otherProps }: HeaderLinkLi
     <nav className={className} {...otherProps}>
       <ul className={classes.headerLinkList}>
         {links.map(({ name, href }) => (
-          <li className={classes.headerLink} key={href}>
+          <li key={`${href}-${name}`} className={classes.headerLink}>
             <HeaderLink to={href}>{name}</HeaderLink>
           </li>
         ))}
@@ -34,7 +34,7 @@ const useStyles = makeStyles(({ spacing }: Theme) => ({
     display: flex;
   `,
   headerLink: css`
-    margin-right: ${spacing()};
+    margin-right: ${spacing(2)};
     &:last-child {
       margin-right: 0;
     }
