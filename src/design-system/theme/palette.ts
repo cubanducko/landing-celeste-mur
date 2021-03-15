@@ -17,16 +17,16 @@ export type PaletteOptions = Partial<Palette>
 
 const defaultPalette = {
   primary: {
-    main: '#0f4770',
-    accent: '#2095f2',
-    detail: '#E1F0FD',
+    main: '#000',
+    accent: '#91a36e',
+    detail: '#91a36e',
   },
   secondary: {
-    main: 'rgb(255, 95, 0)',
-    accent: 'rgb(153, 57, 0)',
+    main: '#facd9d',
+    accent: '#f5b17d',
   },
   typography: {
-    main: '#706F70',
+    main: '#000',
   },
 }
 
