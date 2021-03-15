@@ -4,6 +4,7 @@ import { ExtendableStyles, Testable } from 'utils/types'
 import { Icon } from '@mdi/react'
 import { mdiInstagram, mdiLinkedin, mdiTwitter, mdiAccountQuestion } from '@mdi/js'
 import { Theme } from 'design-system'
+import mdiBehance from './custom-icons/behance.json'
 
 export type SocialLinkProps = ExtendableStyles &
   Testable & {
@@ -31,6 +32,8 @@ function getIconPathData(icon: string) {
       return mdiLinkedin
     case 'twitter':
       return mdiTwitter
+    case 'behance':
+      return mdiBehance.path
     default:
       return mdiAccountQuestion
   }
