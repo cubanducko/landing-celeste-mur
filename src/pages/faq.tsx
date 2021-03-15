@@ -3,7 +3,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { Question, QuestionProps } from 'components/Question'
 import { css, makeStyles } from 'services/styles'
-import { Theme } from 'design-system'
+import { rhythm, Theme } from 'design-system'
 
 export default function FAQ({ data }) {
   const { title, questions, faqDetail } = data.contentfulFaq
@@ -14,9 +14,9 @@ export default function FAQ({ data }) {
         <Img {...faqDetail} />
       </aside>
       <article>
-        <h1>{title}</h1>
+        <h1 className={classes.title}>{title}</h1>
         {questions.map((question: Pick<QuestionProps, 'answer' | 'question'>) => (
-          <Question key={question.question} {...question} />
+          <Question className={classes.question} key={question.question} {...question} />
         ))}
       </article>
     </section>
@@ -50,5 +50,11 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   `,
   imageWrapper: css`
     width: 100%;
+  `,
+  title: css`
+    margin-bottom: ${rhythm(3)};
+  `,
+  question: css`
+    margin-bottom: ${rhythm(1)};
   `,
 }))

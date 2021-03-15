@@ -27,6 +27,7 @@ const useStyles = makeStyles(({ spacing, palette, breakpoints }: Theme) => ({
     display: flex;
     justify-content: center;
     background-color: ${palette.secondary.main};
+    text-align: center;
   `,
   footerWrapper: css`
     display: flex;

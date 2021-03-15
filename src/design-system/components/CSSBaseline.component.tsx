@@ -17,9 +17,6 @@ export function CSSBaseline() {
         *:after {
           box-sizing: inherit;
         }
-        body {
-          color: ${palette.typography.main};
-        }
 
         ul,
         ol,

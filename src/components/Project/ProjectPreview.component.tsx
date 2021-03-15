@@ -36,43 +36,48 @@ export function ProjectPreview({ className, previewImage, title, slug, ...otherP
   )
 }
 
-const useStyles = makeStyles(({ spacing, palette }: Theme) => ({
-  container: css`
-    display: flex;
-    flex-direction: column;
-  `,
-  imagePreview: css`
-    position: relative;
-    margin-bottom: ${spacing(2)};
-  `,
-  imagePreviewHover: css`
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: ${Color(palette.primary.detail).fade(0.2).toString()};
-    opacity: 0;
-    transition: opacity 400ms ease-in-out;
-    z-index: 1;
+const useStyles = makeStyles(({ spacing, palette }: Theme) => {
+  const h2Styles = getTypographyStyles().h2
+  return {
+    container: css`
+      display: flex;
+      flex-direction: column;
+    `,
+    imagePreview: css`
+      position: relative;
+      margin-bottom: ${spacing(2)};
+    `,
+    imagePreviewHover: css`
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: ${Color(palette.primary.detail).fade(0.2).toString()};
+      opacity: 0;
+      transition: opacity 400ms ease-in-out;
+      z-index: 1;
 
-    &:hover {
-      opacity: 1;
-    }
-  `,
-  icon: css`
-    width: ${spacing(5)};
-    height: ${spacing(5)};
-    color: white;
-  `,
-  image: css`
-    width: 100%;
-    height: ${spacing(30)};
-  `,
-  title: css`
-    font-size: ${getTypographyStyles().h2.fontSize};
-  `,
-}))
+      &:hover {
+        opacity: 1;
+      }
+    `,
+    icon: css`
+      width: ${spacing(5)};
+      height: ${spacing(5)};
+      color: white;
+    `,
+    image: css`
+      width: 100%;
+      height: ${spacing(30)};
+    `,
+    title: css`
+      font-size: ${h2Styles.fontSize};
+      color: ${h2Styles.color};
+      font-weight: ${h2Styles.fontWeight};
+    `,
+  }
+})
