@@ -32,6 +32,7 @@ export function HeaderLinkList({ className, links, ...otherProps }: HeaderLinkLi
 const useStyles = makeStyles(({ spacing }: Theme) => ({
   headerLinkList: css`
     display: flex;
+    justify-content: space-between;
   `,
   headerLink: css`
     margin-right: ${spacing(2)};

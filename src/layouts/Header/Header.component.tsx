@@ -62,11 +62,15 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   `,
   headerWrapper: css`
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: ${spacing(2)};
     margin: 0 auto;
+    width: 100%;
+
     @media (min-width: ${breakpoints.sm}) {
+      flex-direction: row;
+
       width: ${spacing(94)};
     }
 

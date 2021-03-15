@@ -16,11 +16,17 @@ export default function Home({ data }) {
   )
 }
 
-const useStyles = makeStyles(({ spacing }: Theme) => ({
+const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   container: css`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: ${spacing(4)};
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: ${breakpoints.md}) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   `,
 }))
 

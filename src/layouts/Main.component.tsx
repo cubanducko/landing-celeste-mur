@@ -20,6 +20,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
     margin: 0 auto;
     padding: ${spacing(2)};
     padding-bottom: ${spacing(15)};
+    width: 100%;
 
     @media (min-width: ${breakpoints.sm}) {
       width: ${spacing(94)};
