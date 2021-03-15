@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { ImageRow } from './Assets'
+import { BeforeAfterImage, ImageRow } from './Assets'
 
 export default function Project({ data }) {
   const { description, title } = data.contentfulProject
@@ -18,10 +18,18 @@ const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
       const entryData = node.data.target
-      const { type } = entryData.internal
-      switch (type) {
+      console.log(entryData)
+      switch (entryData.__typename) {
         case 'ContentfulImageRow':
           return <ImageRow images={entryData.imageGroup} />
+        case 'ContentfulBeforeAfterImage':
+          return (
+            <BeforeAfterImage
+              before={entryData.beforeImage}
+              after={entryData.afterImage}
+              description={entryData.description}
+            />
+          )
         default:
           return children
       }
@@ -36,15 +44,29 @@ export const query = graphql`
       title
       description {
         references {
-          ... on ContentfulImageRow {
-            contentful_id
-            internal {
-              type
-            }
-            imageGroup {
-              fluid(maxWidth: 1140) {
-                ...GatsbyContentfulFluid_withWebp
+          __typename
+          ... on Node {
+            ... on ContentfulImageRow {
+              contentful_id
+              imageGroup {
+                fluid(maxWidth: 1140) {
+                  ...GatsbyContentfulFluid_withWebp
+                }
               }
+            }
+            ... on ContentfulBeforeAfterImage {
+              contentful_id
+              beforeImage {
+                fluid(maxWidth: 1140) {
+                  ...GatsbyContentfulFluid_withWebp
+                }
+              }
+              afterImage {
+                fluid(maxWidth: 1140) {
+                  ...GatsbyContentfulFluid_withWebp
+                }
+              }
+              description
             }
           }
         }
