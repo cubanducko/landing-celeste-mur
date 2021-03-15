@@ -34,7 +34,7 @@ const useStyles = makeStyles(({ palette }: Theme) => {
   return {
     link: css`
       position: relative;
-      color: ${palette.primary.main};
+      color: ${palette.typography.main};
       transition: color ease-in-out 200ms;
 
       &:hover {

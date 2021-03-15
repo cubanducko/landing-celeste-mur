@@ -6,5 +6,7 @@ const typography = new Typography({
   baseFontSize: '15px',
   baseLineHeight: 1.2,
 })
+
+export const getTypographyStyles = typography.toJSON as () => any
 export const { scale, rhythm, options } = typography
 export default typography
