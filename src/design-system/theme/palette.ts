@@ -10,6 +10,7 @@ export type Palette = {
   }
   typography: {
     main: string
+    secondary: string
   }
 }
 
@@ -27,6 +28,7 @@ export const defaultPalette = {
   },
   typography: {
     main: '#333',
+    secondary: '#777',
   },
 }
 

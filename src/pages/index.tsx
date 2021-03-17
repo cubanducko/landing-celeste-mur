@@ -7,6 +7,8 @@ import React from 'react'
 import { useLocation } from 'react-use'
 import { css, makeStyles } from 'services/styles'
 import queryString from 'query-string'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Delayed } from 'components/Animations'
 
 export default function Home({ data }) {
   const classes = useStyles()
@@ -28,9 +30,13 @@ export default function Home({ data }) {
         ))}
       </nav>
       <article className={classes.projects}>
-        {projects.map(({ node }) => (
-          <ProjectPreview key={node.slug} {...node} />
-        ))}
+        <AnimatePresence>
+          {projects.map(({ node }, index) => (
+            <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+              <ProjectPreview key={node.slug} {...node} />
+            </motion.span>
+          ))}
+        </AnimatePresence>
       </article>
     </section>
   )

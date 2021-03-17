@@ -36,7 +36,7 @@ const useStyles = makeStyles(({ palette }: Theme) => {
   return {
     link: css`
       position: relative;
-      color: ${palette.typography.main};
+      color: ${palette.typography.secondary};
       transition: color ease-in-out 200ms;
       cursor: pointer;
 

@@ -46,7 +46,7 @@ export function ProjectPreview({
 }
 
 const useStyles = makeStyles(({ spacing, palette }: Theme) => {
-  const h2Styles = getTypographyStyles().h2
+  const h3Styles = getTypographyStyles().h3
   return {
     container: css`
       display: flex;
@@ -86,9 +86,9 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
       height: ${spacing(30)};
     `,
     title: css`
-      font-size: ${h2Styles.fontSize};
+      font-size: ${h3Styles.fontSize};
       color: ${palette.typography.main};
-      font-weight: ${h2Styles.fontWeight};
+      font-weight: ${h3Styles.fontWeight};
     `,
     categoryList: css`
       display: flex;
