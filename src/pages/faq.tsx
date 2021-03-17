@@ -54,7 +54,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
     width: 100%;
   `,
   title: css`
-    margin-bottom: ${rhythm(3)};
+    margin-bottom: ${rhythm(2)};
   `,
   question: css`
     margin-bottom: ${rhythm(1)};

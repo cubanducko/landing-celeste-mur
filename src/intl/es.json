@@ -1,5 +1,9 @@
 {
   "title": "Celeste Mur",
+  "works": "Trabajos",
+  "category": {
+    "all": "Todas"
+  },
   "footer": {
     "copyright": "COPYRIGHT © {year}. TODOS LOS DERECHOS RESERVADOS"
   },

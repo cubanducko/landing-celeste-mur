@@ -43,10 +43,6 @@ const useStyles = makeStyles(({ spacing, palette, breakpoints }: Theme) => ({
     @media (min-width: ${breakpoints.md}) {
       width: ${spacing(121)};
     }
-
-    @media (min-width: ${breakpoints.lg}) {
-      width: ${spacing(147)};
-    }
   `,
   socialLink: css`
     margin-bottom: ${spacing()};

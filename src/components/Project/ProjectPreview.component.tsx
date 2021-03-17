@@ -7,21 +7,25 @@ import { Link } from 'gatsby-plugin-intl'
 import Color from 'color'
 import Icon from '@mdi/react'
 import { mdiEyeOutline } from '@mdi/js'
+import { Category, CategoryTag } from 'components/Category'
 
-export type ProjectPreviewProps = ExtendableStyles &
-  Testable & {
-    previewImage: { fluid: FluidObject }
-    title: string
-    slug: string
-  }
+export type ProjectPreviewProps = ExtendableStyles & Testable & ProjectPreviewData
 
 export type ProjectPreviewData = {
   previewImage: { fluid: FluidObject }
   title: string
   slug: string
+  categories: Category[]
 }
 
-export function ProjectPreview({ className, previewImage, title, slug, ...otherProps }: ProjectPreviewProps) {
+export function ProjectPreview({
+  className,
+  previewImage,
+  title,
+  slug,
+  categories,
+  ...otherProps
+}: ProjectPreviewProps) {
   const classes = useStyles()
   return (
     <article className={cx(classes.container, className)} {...otherProps}>
@@ -32,6 +36,11 @@ export function ProjectPreview({ className, previewImage, title, slug, ...otherP
         <Img className={classes.image} {...previewImage} />
       </Link>
       <span className={classes.title}>{title}</span>
+      <span className={classes.categoryList}>
+        {categories.map((category) => (
+          <CategoryTag category={category} />
+        ))}
+      </span>
     </article>
   )
 }
@@ -45,7 +54,9 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
     `,
     imagePreview: css`
       position: relative;
-      margin-bottom: ${spacing(2)};
+      margin-bottom: ${spacing()};
+      overflow: hidden;
+      border-radius: ${spacing()};
     `,
     imagePreviewHover: css`
       position: absolute;
@@ -76,8 +87,11 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
     `,
     title: css`
       font-size: ${h2Styles.fontSize};
-      color: ${h2Styles.color};
+      color: ${palette.typography.main};
       font-weight: ${h2Styles.fontWeight};
+    `,
+    categoryList: css`
+      display: flex;
     `,
   }
 })

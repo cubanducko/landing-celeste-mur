@@ -15,7 +15,7 @@ export type Palette = {
 
 export type PaletteOptions = Partial<Palette>
 
-const defaultPalette = {
+export const defaultPalette = {
   primary: {
     main: '#000',
     accent: '#91a36e',
@@ -26,7 +26,7 @@ const defaultPalette = {
     accent: '#f5b17d',
   },
   typography: {
-    main: '#000',
+    main: '#333',
   },
 }
 

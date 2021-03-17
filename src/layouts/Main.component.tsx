@@ -29,9 +29,5 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
     @media (min-width: ${breakpoints.md}) {
       width: ${spacing(121)};
     }
-
-    @media (min-width: ${breakpoints.lg}) {
-      width: ${spacing(147)};
-    }
   `,
 }))
