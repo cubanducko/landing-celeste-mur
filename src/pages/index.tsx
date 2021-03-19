@@ -30,11 +30,13 @@ export default function Home({ data }) {
         ))}
       </nav>
       <article className={classes.projects}>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {projects.map(({ node }, index) => (
-            <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-              <ProjectPreview key={node.slug} {...node} />
-            </motion.span>
+            <Delayed key={`${node.slug}-${index}`} delay={100 * index}>
+              <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+                <ProjectPreview {...node} />
+              </motion.span>
+            </Delayed>
           ))}
         </AnimatePresence>
       </article>
@@ -76,6 +78,7 @@ function filterProjectsByCategory(category: string) {
 const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   container: css`
     margin-bottom: ${spacing(15)};
+    min-height: 55vh;
   `,
   title: css`
     margin-bottom: ${rhythm(2)};
@@ -108,7 +111,7 @@ export const query = graphql`
           slug
           title
           previewImage {
-            fluid(maxWidth: 360, maxHeight: 240) {
+            fluid(maxWidth: 720, maxHeight: 420) {
               ...GatsbyContentfulFluid_withWebp
             }
           }

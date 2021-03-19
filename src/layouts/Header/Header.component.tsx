@@ -45,7 +45,7 @@ function useHeaderData() {
     query HeaderQuery {
       contentfulHeader(node_locale: { eq: "es" }) {
         logo {
-          fluid(maxWidth: 125, maxHeight: 125) {
+          fluid(maxWidth: 480, maxHeight: 300) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
@@ -79,7 +79,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
     }
   `,
   logo: css`
-    width: ${spacing(8)};
+    width: ${spacing(14)};
     height: 'auto';
   `,
   headerLinks: css`
