@@ -1,3 +1,5 @@
+import { DefaultMetadata, Metadata, MetadataInfo } from 'components/SEO'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { css } from 'services/styles'
 import { WithChildren } from 'utils/types'
@@ -11,6 +13,7 @@ export type RootProps = WithChildren
 export default function Root({ children }: RootProps) {
   return (
     <LibraryProvider>
+      <DefaultMetadata />
       <div className={classes.wrapper}>
         <Header className={classes.header} />
         <Main className={classes.main}>{children}</Main>
