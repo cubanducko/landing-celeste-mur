@@ -38,7 +38,7 @@ export function ProjectPreview({
       <span className={classes.title}>{title}</span>
       <span className={classes.categoryList}>
         {categories.map((category) => (
-          <CategoryTag category={category} />
+          <CategoryTag key={category.slug} category={category} />
         ))}
       </span>
     </article>
