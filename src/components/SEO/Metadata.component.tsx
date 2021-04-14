@@ -35,9 +35,10 @@ export function Metadata({ metadata: { title, description, thumbnail, icon, twit
       {description && <meta name="twitter:description" content={description} />}
 
       {/* URL */}
-      {url && <meta itemProp={url} content="http://www.anooshasyed.com" />}
+      {url && <meta itemProp={url} content={url} />}
       {url && <meta property="og:url" content={url} />}
       {url && <meta property="twitter:url" content={url} />}
+      {url && <link rel="canonical" href={url} />}
 
       {/* Thumbnail */}
       {thumbnail && <meta itemProp="image" content={thumbnail.fixed.src} />}
@@ -51,8 +52,6 @@ export function Metadata({ metadata: { title, description, thumbnail, icon, twit
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       {twitterUsername && <meta name="twitter:creator" content={twitterUsername} />}
-
-      <link rel="canonical" href={window.location.href} />
     </Helmet>
   )
 }
