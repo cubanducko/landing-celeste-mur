@@ -18,7 +18,6 @@ const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
       const entryData = node.data.target
-      console.log(entryData)
       switch (entryData.__typename) {
         case 'ContentfulImageRow':
           return <ImageRow images={entryData.imageGroup} />
