@@ -9,13 +9,16 @@ import { css, makeStyles } from 'services/styles'
 import queryString from 'query-string'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Delayed } from 'components/Animations'
+import { Metadata } from 'components/SEO'
 
 export default function Home({ data }) {
   const classes = useStyles()
   const { projects, currentCategory } = useProjectsData(data.allContentfulProject.edges)
   const categories = useCategories(data.allContentfulCategory.edges)
+
   return (
     <section className={classes.container}>
+      <Metadata metadata={data.contentfulMetadata} />
       <h1 className={classes.title}>
         <FormattedMessage id="works" />
       </h1>
@@ -30,9 +33,9 @@ export default function Home({ data }) {
         ))}
       </nav>
       <article className={classes.projects}>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence>
           {projects.map(({ node }, index) => (
-            <Delayed key={`${node.slug}-${index}`} delay={100 * index}>
+            <Delayed key={`${node.slug}-${index}`} delay={100 * (index + 3)}>
               <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
                 <ProjectPreview {...node} />
               </motion.span>
@@ -129,6 +132,10 @@ export const query = graphql`
           slug
         }
       }
+    }
+    contentfulMetadata(slug: { eq: "root-metadata" }, node_locale: { eq: $locale }) {
+      description
+      title
     }
   }
 `
