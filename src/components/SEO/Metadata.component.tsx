@@ -1,4 +1,4 @@
-import GatsbyImage, { FixedObject, GatsbyImageFixedProps } from 'gatsby-image'
+import { FixedObject } from 'gatsby-image'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
