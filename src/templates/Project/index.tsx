@@ -3,13 +3,15 @@ import React from 'react'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BeforeAfterImage, ImageRow } from './Assets'
+import { Metadata } from 'components'
 
 export default function Project({ data }) {
-  const { description, title } = data.contentfulProject
+  const { description, title, metadata } = data.contentfulProject
   return (
     <section>
       <h1>{title}</h1>
       {renderRichText(description, options)}
+      <Metadata metadata={metadata} />
     </section>
   )
 }
@@ -41,6 +43,16 @@ export const query = graphql`
     contentfulProject(node_locale: { eq: $locale }, slug: { eq: $slug }) {
       slug
       title
+      metadata {
+        description
+        title
+        url
+        thumbnail {
+          fixed(width: 1000, height: 1000) {
+            ...GatsbyContentfulFixed_withWebp
+          }
+        }
+      }
       description {
         references {
           __typename

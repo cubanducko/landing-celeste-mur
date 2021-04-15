@@ -10,12 +10,12 @@ export type MetadataInfo = {
   title?: string
   description?: string
   thumbnail?: { fixed: FixedObject }
-  icon?: { fixed: FixedObject }
   url?: string
   twitterUsername?: string
 }
 
-export function Metadata({ metadata: { title, description, thumbnail, icon, twitterUsername, url } }: MetadataProps) {
+export function Metadata({ metadata }: MetadataProps) {
+  const { title, description, thumbnail, twitterUsername, url } = metadata ?? {}
   return (
     <Helmet>
       {/* Other metadata */}

@@ -1,3 +1,4 @@
+import { Metadata } from 'components/SEO'
 import { SocialLinkList } from 'components/SocialLinks/SocialLinkList.component'
 import { Theme } from 'design-system'
 import { graphql } from 'gatsby'
@@ -7,7 +8,7 @@ import React from 'react'
 import { css, makeStyles } from 'services/styles'
 
 export default function About({ data }) {
-  const { title, description, profilePicture } = data.contentfulAbout
+  const { title, description, profilePicture, metadata } = data.contentfulAbout
   const classes = useStyles()
   return (
     <section className={classes.container}>
@@ -19,6 +20,7 @@ export default function About({ data }) {
         <section>{renderRichText(description)}</section>
         <SocialLinkList />
       </article>
+      <Metadata metadata={metadata} />
     </section>
   )
 }
@@ -30,8 +32,18 @@ export const query = graphql`
       description {
         raw
       }
+      metadata {
+        description
+        title
+        url
+        thumbnail {
+          fixed(width: 1000, height: 1000) {
+            ...GatsbyContentfulFixed_withWebp
+          }
+        }
+      }
       profilePicture {
-        fluid(maxWidth: 500) {
+        fluid(maxWidth: 1000) {
           ...GatsbyContentfulFluid_withWebp
         }
       }

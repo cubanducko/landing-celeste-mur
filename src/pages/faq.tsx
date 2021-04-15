@@ -4,9 +4,10 @@ import Img from 'gatsby-image'
 import { Question, QuestionProps } from 'components/Question'
 import { css, makeStyles } from 'services/styles'
 import { rhythm, Theme } from 'design-system'
+import { Metadata } from 'components/SEO'
 
 export default function FAQ({ data }) {
-  const { title, questions, faqDetail } = data.contentfulFaq
+  const { title, questions, faqDetail, metadata } = data.contentfulFaq
   const classes = useStyles()
   return (
     <section className={classes.container}>
@@ -19,6 +20,7 @@ export default function FAQ({ data }) {
           <Question className={classes.question} key={question.question} {...question} />
         ))}
       </article>
+      <Metadata metadata={metadata} />
     </section>
   )
 }
@@ -36,6 +38,16 @@ export const query = graphql`
           raw
         }
         question
+      }
+      metadata {
+        description
+        title
+        url
+        thumbnail {
+          fixed(width: 1000, height: 1000) {
+            ...GatsbyContentfulFixed_withWebp
+          }
+        }
       }
       title
     }
