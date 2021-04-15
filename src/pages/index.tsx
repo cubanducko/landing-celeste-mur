@@ -8,7 +8,6 @@ import { useLocation } from 'react-use'
 import { css, makeStyles } from 'services/styles'
 import queryString from 'query-string'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Delayed } from 'components/Animations'
 import { Metadata } from 'components/SEO'
 
 export default function Home({ data }) {
@@ -32,15 +31,22 @@ export default function Home({ data }) {
           />
         ))}
       </nav>
-      <article className={classes.projects}>
-        <AnimatePresence>
-          {projects.map(({ node }, index) => (
-            <Delayed key={`${node.slug}-${index}`} delay={100 * (index + 3)}>
-              <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+      <article>
+        <AnimatePresence exitBeforeEnter>
+          <motion.ul
+            className={classes.projects}
+            key={`${projects.length}-${currentCategory}`}
+            variants={container}
+            initial="hidden"
+            animate="show"
+            exit={'hidden'}
+          >
+            {projects.map(({ node }, index) => (
+              <motion.li key={`${node.slug}-${index}`} variants={item}>
                 <ProjectPreview {...node} />
-              </motion.span>
-            </Delayed>
-          ))}
+              </motion.li>
+            ))}
+          </motion.ul>
         </AnimatePresence>
       </article>
     </section>
@@ -55,6 +61,21 @@ function useCategories(baseCategories: { node: Category }[]): Category[] {
     },
     ...baseCategories.map(({ node }) => node),
   ]
+}
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
 }
 
 function useProjectsData(projects: { node: ProjectPreviewData }[]) {
