@@ -57,9 +57,9 @@ export const query = graphql`
 const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
   container: css`
     display: grid;
-    grid-gap: ${spacing(4)};
+    grid-gap: ${spacing(6)};
     @media (min-width: ${breakpoints.md}) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 2fr;
     }
   `,
   imageWrapper: css`
