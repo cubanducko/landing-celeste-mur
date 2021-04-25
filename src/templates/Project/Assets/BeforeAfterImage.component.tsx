@@ -1,7 +1,7 @@
 import React from 'react'
 import { ExtendableStyles, Testable } from 'utils/types'
 import Img, { GatsbyImageProps } from 'gatsby-image'
-import { ReactCompareSlider } from 'react-compare-slider'
+import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider'
 import { css, cx, makeStyles } from 'services/styles'
 import { Theme } from 'design-system'
 
@@ -16,11 +16,17 @@ export function BeforeAfterImage({ className, before, after, description, ...oth
   const classes = useStyles()
   return (
     <figure className={cx(className, classes.container)} {...otherProps}>
-      <ReactCompareSlider itemOne={<Img {...before} />} itemTwo={<Img {...after} />} />
+      <ReactCompareSlider
+        itemOne={<Img {...before} />}
+        itemTwo={<Img {...after} />}
+        handle={<ReactCompareSliderHandle buttonStyle={handleStyles} />}
+      />
       {description && <caption className={classes.description}>{description}</caption>}
     </figure>
   )
 }
+
+const handleStyles = { backgroundColor: '#333' }
 
 const useStyles = makeStyles(({ spacing }: Theme) => ({
   container: css`

@@ -35,7 +35,9 @@ export function ProjectPreview({
         </div>
         <Img className={classes.image} {...previewImage} />
       </Link>
-      <span className={classes.title}>{title}</span>
+      <Link className={classes.title} to={`/project/${slug}`}>
+        {title}
+      </Link>
       <span className={classes.categoryList}>
         {categories.map((category) => (
           <CategoryTag key={category.slug} category={category} />
@@ -47,6 +49,7 @@ export function ProjectPreview({
 
 const useStyles = makeStyles(({ spacing, palette }: Theme) => {
   const h3Styles = getTypographyStyles().h3
+
   return {
     container: css`
       display: flex;
@@ -89,6 +92,12 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
       font-size: ${h3Styles.fontSize};
       color: ${palette.typography.main};
       font-weight: ${h3Styles.fontWeight};
+      cursor: pointer;
+
+      &:hover {
+        color: inherit;
+        text-decoration: none;
+      }
     `,
     categoryList: css`
       display: flex;

@@ -112,7 +112,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
     margin-bottom: ${rhythm(1)};
   `,
   category: css`
-    margin-right: ${spacing()};
+    margin-right: ${spacing(3)};
   `,
   projects: css`
     display: grid;
@@ -129,7 +129,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
 
 export const query = graphql`
   query HomePageQuery($locale: String) {
-    allContentfulProject(filter: { node_locale: { eq: $locale } }) {
+    allContentfulProject(filter: { node_locale: { eq: $locale } }, sort: { order: DESC, fields: updatedAt }) {
       edges {
         node {
           slug
