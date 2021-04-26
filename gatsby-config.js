@@ -11,6 +11,7 @@ const contentfulConfig = {
 module.exports = {
   siteMetadata: {
     title: 'Landing Celeste Mur',
+    siteUrl: 'https://celestemur.gatsbyjs.io/',
   },
   plugins: [
     `gatsby-alias-imports`,
@@ -61,5 +62,7 @@ module.exports = {
       __key: 'images',
     },
     'gatsby-plugin-typescript',
+    'gatsby-plugin-robots-txt',
+    `gatsby-plugin-sitemap`,
   ],
 }
