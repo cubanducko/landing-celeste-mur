@@ -4,6 +4,7 @@ import { BLOCKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BeforeAfterImage, ImageRow } from './Assets'
 import { Metadata } from 'components'
+import { AppearOnScreen } from 'components/Animations/AppearOnScreen.component'
 
 export default function Project({ data }) {
   const { description, title, metadata } = data.contentfulProject
@@ -18,21 +19,28 @@ export default function Project({ data }) {
 
 const options = {
   renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <AppearOnScreen component="p">{children}</AppearOnScreen>,
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
       const entryData = node.data.target
       switch (entryData.__typename) {
         case 'ContentfulImageRow':
-          return <ImageRow images={entryData.imageGroup} />
+          return (
+            <AppearOnScreen>
+              <ImageRow images={entryData.imageGroup} />
+            </AppearOnScreen>
+          )
         case 'ContentfulBeforeAfterImage':
           return (
-            <BeforeAfterImage
-              before={entryData.beforeImage}
-              after={entryData.afterImage}
-              description={entryData.description}
-            />
+            <AppearOnScreen>
+              <BeforeAfterImage
+                before={entryData.beforeImage}
+                after={entryData.afterImage}
+                description={entryData.description}
+              />
+            </AppearOnScreen>
           )
         default:
-          return children
+          return <AppearOnScreen>{children}</AppearOnScreen>
       }
     },
   },
