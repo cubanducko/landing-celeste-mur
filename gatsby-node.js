@@ -53,3 +53,12 @@ async function getProjectSlugs(graphql, locale) {
     `
   )
 }
+
+// Disable devtools in production
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  if (getConfig().mode === 'production') {
+    actions.setWebpackConfig({
+      devtool: false,
+    })
+  }
+}
