@@ -36,15 +36,24 @@ module.exports = {
         redirect: true,
       },
     },
+    `gatsby-plugin-preload-fonts`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `source sans pro\:200,400,400i`, // you can also specify font weights and styles
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
+        omitGoogleFont: true,
         pathToConfigModule: `src/design-system/typography/index`,
       },
     },
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
-    `gatsby-plugin-preload-fonts`,
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',

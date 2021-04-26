@@ -30,6 +30,7 @@
     "gatsby-image": "^3.3.0",
     "gatsby-plugin-emotion": "^6.3.0",
     "gatsby-plugin-gatsby-cloud": "^2.3.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.3.0",
     "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-layout": "^2.3.0",
