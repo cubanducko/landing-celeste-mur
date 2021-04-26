@@ -93,6 +93,7 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
       color: ${palette.typography.main};
       font-weight: ${h3Styles.fontWeight};
       cursor: pointer;
+      margin-bottom: ${spacing(1)};
 
       &:hover {
         color: inherit;

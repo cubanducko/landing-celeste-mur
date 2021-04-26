@@ -20,19 +20,24 @@ exports.createPages = async ({ graphql, actions, ...otherProps }) => {
   // Project routes
   const {
     data: {
-      allContentfulProject: { edges: projectSlugs },
+      contentfulHomepage: { portfolio },
     },
   } = await getProjectSlugs(graphql, 'es')
   const projectTemplate = path.resolve(`src/templates/Project/index.tsx`)
-  projectSlugs.forEach(({ node }) => {
+  const getProjectPath = (slug) => `/project/${slug}`
+  portfolio.forEach((node, index) => {
     const { slug } = node
+    const previousProject = index > 0 ? portfolio[index - 1] : undefined
+    const nextProject = index < portfolio.length ? portfolio[index + 1] : undefined
 
     createPage({
       // Path for this page — required
-      path: `/project/${slug}`,
+      path: getProjectPath(slug),
       component: projectTemplate,
       context: {
         slug,
+        previousProjectPath: previousProject ? getProjectPath(previousProject.slug) : undefined,
+        nextProjectPath: nextProject ? getProjectPath(nextProject.slug) : undefined,
       },
     })
   })
@@ -42,11 +47,9 @@ async function getProjectSlugs(graphql, locale) {
   return graphql(
     `
       {
-        allContentfulProject(filter: {node_locale: {eq: "${locale}"}}) {
-          edges {
-            node {
-              slug
-            }
+        contentfulHomepage(node_locale: { eq: "${locale}" }) {
+          portfolio {
+            slug
           }
         }
       }

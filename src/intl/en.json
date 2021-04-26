@@ -11,5 +11,9 @@
     "work": "Work",
     "about": "About",
     "faq": "FAQ"
+  },
+  "project": {
+    "next": "Next project",
+    "previous": "Previous project"
   }
 }
