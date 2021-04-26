@@ -12,7 +12,6 @@ import { Metadata } from 'components/SEO'
 
 export default function Home({ data }) {
   const classes = useStyles()
-  console.log(data)
   const { projects, currentCategory } = useProjectsData(data.contentfulHomepage.portfolio)
   const categories = useCategories(data.contentfulHomepage.categories)
 
