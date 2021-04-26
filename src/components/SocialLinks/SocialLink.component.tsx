@@ -16,7 +16,7 @@ export type SocialLinkProps = ExtendableStyles &
 export function SocialLink({ className, href, name, icon, ...otherProps }: SocialLinkProps) {
   const classes = useStyles()
   return (
-    <a className={cx(className, classes.link)} href={href} target="_blank" {...otherProps}>
+    <a className={cx(className, classes.link)} href={href} target="_blank" rel="noopener noreferrer" {...otherProps}>
       <i className={classes.icon} aria-label={name}>
         <Icon path={getIconPathData(icon)} />
       </i>
