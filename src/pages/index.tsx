@@ -12,8 +12,9 @@ import { Metadata } from 'components/SEO'
 
 export default function Home({ data }) {
   const classes = useStyles()
-  const { projects, currentCategory } = useProjectsData(data.allContentfulProject.edges)
-  const categories = useCategories(data.allContentfulCategory.edges)
+  console.log(data)
+  const { projects, currentCategory } = useProjectsData(data.contentfulHomepage.portfolio)
+  const categories = useCategories(data.contentfulHomepage.categories)
 
   return (
     <section className={classes.container}>
@@ -41,7 +42,7 @@ export default function Home({ data }) {
             animate="show"
             exit={'hidden'}
           >
-            {projects.map(({ node }, index) => (
+            {projects.map((node, index) => (
               <motion.li key={`${node.slug}-${index}`} variants={item}>
                 <ProjectPreview {...node} />
               </motion.li>
@@ -53,13 +54,13 @@ export default function Home({ data }) {
   )
 }
 
-function useCategories(baseCategories: { node: Category }[]): Category[] {
+function useCategories(baseCategories: Category[]): Category[] {
   return [
     {
       name: <FormattedMessage id="category.all" />,
       slug: undefined as any,
     },
-    ...baseCategories.map(({ node }) => node),
+    ...baseCategories,
   ]
 }
 
@@ -78,7 +79,7 @@ const item = {
   show: { opacity: 1, y: 0 },
 }
 
-function useProjectsData(projects: { node: ProjectPreviewData }[]) {
+function useProjectsData(projects: ProjectPreviewData[]) {
   const { search = '' } = useLocation()
   const { category: currentCategory } = queryString.parse(search)
 
@@ -94,7 +95,7 @@ function useProjectsData(projects: { node: ProjectPreviewData }[]) {
 }
 
 function filterProjectsByCategory(category: string) {
-  return ({ node }: { node: ProjectPreviewData }) => {
+  return (node: ProjectPreviewData) => {
     return node.categories.findIndex(({ slug }) => category === slug) !== -1
   }
 }
@@ -129,29 +130,23 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
 
 export const query = graphql`
   query HomePageQuery($locale: String) {
-    allContentfulProject(filter: { node_locale: { eq: $locale } }, sort: { order: DESC, fields: updatedAt }) {
-      edges {
-        node {
-          slug
-          title
-          previewImage {
-            fluid(maxWidth: 720, maxHeight: 420) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          categories {
-            name
-            slug
+    contentfulHomepage(node_locale: { eq: "es" }) {
+      portfolio {
+        slug
+        title
+        previewImage {
+          fluid(maxWidth: 720, maxHeight: 420) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
-      }
-    }
-    allContentfulCategory(filter: { node_locale: { eq: $locale } }) {
-      edges {
-        node {
+        categories {
           name
           slug
         }
+      }
+      categories {
+        name
+        slug
       }
     }
     contentfulMetadata(slug: { eq: "root-metadata" }, node_locale: { eq: $locale }) {
