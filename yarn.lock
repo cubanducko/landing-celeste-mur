@@ -960,6 +960,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.4.3":
+  version "7.13.17"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.17.tgz#8966d1fc9593bf848602f0662d6b4d0069e3a7ec"
+  integrity sha512-NCdgJEelPTSh+FEFylhnP1ylq848l1z9t9N0j1Lfbcw0+KXGjsTvUmkxy+voLLXB5SOKMbLLx4jxYliGrYQseA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.12.6":
   version "7.13.10"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.13.10.tgz#444627b445d9914973551ee17dbe1ea345635bf3"
@@ -6369,6 +6376,13 @@ gatsby-plugin-page-creator@^3.3.0:
     gatsby-telemetry "^2.3.0"
     globby "^11.0.2"
     lodash "^4.17.21"
+
+gatsby-plugin-preconnect@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preconnect/-/gatsby-plugin-preconnect-1.2.0.tgz#163a526b2ce5bcae17c8b1d65d51c07a20715614"
+  integrity sha512-Xr2cLKCfT8d7DTT8UEXgduCeB2lonKc6YdeyP8qLUP4LYAKO18GG/8bESAkOe6vtbtPo/blUpJPJdfXhHOWs7A==
+  dependencies:
+    "@babel/runtime" "^7.4.3"
 
 gatsby-plugin-preload-fonts@^2.3.0:
   version "2.3.0"

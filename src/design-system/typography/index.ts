@@ -2,6 +2,8 @@ import { defaultPalette } from 'design-system/theme/palette'
 import Typography from 'typography'
 import moragaTheme from 'typography-theme-moraga'
 
+import './font-face.css'
+
 const typography = new Typography({
   ...moragaTheme,
   baseFontSize: '15px',

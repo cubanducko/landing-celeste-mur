@@ -38,11 +38,9 @@ module.exports = {
     },
     `gatsby-plugin-preload-fonts`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-preconnect',
       options: {
-        fonts: [
-          `source sans pro\:200,400,400i`, // you can also specify font weights and styles
-        ],
+        domains: ['https://fonts.gstatic.com'],
       },
     },
     {
