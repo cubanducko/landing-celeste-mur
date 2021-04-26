@@ -129,7 +129,7 @@ const useStyles = makeStyles(({ spacing, breakpoints }: Theme) => ({
 
 export const query = graphql`
   query HomePageQuery($locale: String) {
-    contentfulHomepage(node_locale: { eq: "es" }) {
+    contentfulHomepage(node_locale: { eq: $locale }) {
       portfolio {
         slug
         title
