@@ -44,6 +44,7 @@ module.exports = {
     },
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
+    `gatsby-plugin-preload-fonts`,
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
