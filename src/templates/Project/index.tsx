@@ -8,6 +8,7 @@ import { AppearOnScreen } from 'components/Animations/AppearOnScreen.component'
 import { FormattedMessage } from 'gatsby-plugin-intl'
 import { css, makeStyles } from 'services/styles'
 import { StyledLink, Theme } from 'design-system'
+import { Divider } from './Divider.component'
 
 export default function Project({ data, pageContext }) {
   const classes = useStyles()
@@ -45,6 +46,11 @@ const useStyles = makeStyles(({ spacing }: Theme) => ({
 
 const options = {
   renderNode: {
+    [BLOCKS.HR]: (node, children) => (
+      <AppearOnScreen component="span">
+        <Divider />
+      </AppearOnScreen>
+    ),
     [BLOCKS.PARAGRAPH]: (node, children) => <AppearOnScreen component="p">{children}</AppearOnScreen>,
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
       const entryData = node.data.target

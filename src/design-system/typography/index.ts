@@ -4,6 +4,12 @@ import moragaTheme from 'typography-theme-moraga'
 
 import './font-face.css'
 
+moragaTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+  'h2,h3': {
+    fontWeight: 400,
+  },
+})
+
 const typography = new Typography({
   ...moragaTheme,
   baseFontSize: '15px',
