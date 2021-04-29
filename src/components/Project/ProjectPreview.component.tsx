@@ -40,7 +40,7 @@ export function ProjectPreview({
       </Link>
       <span className={classes.categoryList}>
         {categories.map((category) => (
-          <CategoryTag key={category.slug} category={category} />
+          <CategoryTag className={classes.category} key={category.slug} category={category} />
         ))}
       </span>
     </article>
@@ -102,6 +102,9 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
     `,
     categoryList: css`
       display: flex;
+    `,
+    category: css`
+      margin-right: ${spacing()};
     `,
   }
 })
