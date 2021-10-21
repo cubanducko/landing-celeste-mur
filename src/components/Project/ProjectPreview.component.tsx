@@ -102,9 +102,11 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) => {
     `,
     categoryList: css`
       display: flex;
+      flex-wrap: wrap;
     `,
     category: css`
       margin-right: ${spacing()};
+      margin-bottom: ${spacing()} !important;
     `,
   }
 })
