@@ -1,39 +1,34 @@
-## 🚀 Quick start
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-1.  **Create a Gatsby site.**
+## Getting Started
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+First, run the development server:
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-2.  **Start developing.**
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-    Navigate into your new site’s directory and start it up.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-3.  **Open the code and start customizing!**
+## Learn More
 
-    Your site is now running at http://localhost:8000!
+To learn more about Next.js, take a look at the following resources:
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-4.  **Learn more**
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Deploy on Vercel
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

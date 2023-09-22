@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl font-extralight leading-tight text-primary-accent;
+  }
+  h2 {
+    @apply mb-4 text-2xl text-primary-accent;
+  }
+  p {
+    @apply mb-4;
+  }
+}
+
+@layer utilities {
+  .content {
+    @apply mx-auto w-full p-4 lg:w-[1024px];
+  }
+
+  .underline-animation {
+    @apply after:bg-current origin-left transform-gpu after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:scale-x-100 after:transition-transform after:duration-200;
+  }
+}

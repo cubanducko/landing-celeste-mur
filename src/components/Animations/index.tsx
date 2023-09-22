@@ -1,1 +1,0 @@
-export * from './Delayed.component'
