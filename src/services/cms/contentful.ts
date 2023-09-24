@@ -1,6 +1,6 @@
-import { Entry, createClient } from 'contentful'
+import { createClient } from 'contentful'
 
-const contentfulDevConfig = {
+const contentfulPreviewConfig = {
   space: process.env.CONTENTFUL_SPACE_ID as string,
   accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN as string,
   host: 'preview.contentful.com',
@@ -13,7 +13,7 @@ const contentfulProdConfig = {
 }
 
 export const contentfulClient = createClient(
-  process.env.NODE_ENV === 'development' ? contentfulDevConfig : contentfulProdConfig,
+  process.env.CONTENTFUL_CONTENT_MODE === 'preview' ? contentfulPreviewConfig : contentfulProdConfig,
 )
 
 export async function getEntryBySlug<ContentFields>(slug: string, options: any) {
