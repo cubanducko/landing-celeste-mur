@@ -1,11 +1,20 @@
 ---
-import { Picture } from 'astro:assets';
-import mobile from './assets/layout/mobile.png'
-import web from './assets/layout/web_size.png'
-
+import { Picture } from "astro:assets";
+import mobile from "./assets/layout/mobile.png";
+import web from "./assets/layout/web_size.png";
 ---
 
-<section class="relative flex flex-col md:flex-row md:items-start w-full" >
-    <Picture class="hidden md:block w-full object-contain h-full max-h-[calc(100vh-20px)] object-top" src={web} formats={['avif', 'webp']} alt="Celeste Mur" />
-    <Picture class="block md:hidden w-full object-contain" src={mobile} formats={['avif', 'webp']} alt="Celeste Mur" />
+<section class="relative flex flex-col md:flex-row md:items-start w-full">
+  <Picture
+    class="hidden md:block w-full object-contain h-full max-h-[calc(100vh-20px)] object-top"
+    src={web}
+    formats={['avif', 'webp']}
+    alt="Celeste Mur"
+  />
+  <Picture
+    class="block md:hidden w-full object-contain"
+    src={mobile}
+    formats={['avif', 'webp']}
+    alt="Celeste Mur"
+  />
 </section>
