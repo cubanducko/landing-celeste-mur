@@ -1,0 +1,48 @@
+---
+import { buildStaticPaths } from "astro-react-i18next/utils";
+import { i18n } from "../../lib/i18n";
+import '../../styles/global.css'
+
+import Socials from "../../components/work-in-progress/socials.astro";
+import WorkInProgress from "../../components/work-in-progress/work-in-progress.astro";
+
+
+export function getStaticPaths() {
+  return buildStaticPaths();
+}
+---
+
+<html lang={i18n.language}>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content={Astro.generator}>
+    <title>{i18n.t("root.metadata.title")}</title>
+    <meta name="description" content={i18n.t("root.metadata.description")}>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={Astro.url}>
+    <meta property="og:title" content={i18n.t("root.metadata.title")}>
+    <meta property="og:description" content={i18n.t("root.metadata.description")}>
+    <meta property="og:image" content={new URL("/og-image.png", Astro.url)}>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={Astro.url}>
+    <meta property="twitter:title" content={i18n.t("root.metadata.title")}>
+    <meta property="twitter:description" content={i18n.t("root.metadata.description")}>
+    <meta property="twitter:image" content={new URL("/og-image.png", Astro.url)}>
+  </head>
+  <body class="bg-[#fbf5e2] pb-20 md:pb-0">
+    <h1 class="sr-only">{i18n.t("root.metadata.title")}</h1>
+    <main class="container mx-auto px-4 flex md:flex-row flex-col justify-center gap-20 md:gap-0 min-h-screen pb-10">
+      <WorkInProgress />
+      <Socials />
+    </main>
+  </body>
+</html>

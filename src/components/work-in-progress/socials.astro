@@ -1,0 +1,44 @@
+---
+import { Picture } from "astro:assets";
+import { t } from "i18next";
+import instagram from "./assets/icons/instagram.png";
+import tiktok from "./assets/icons/tiktok.png";
+import youtube from "./assets/icons/youtube.png";
+import findMe from './assets/texts/find-me.png'
+import mail from "./assets/texts/mail.png";
+import mientras from "./assets/texts/mientras.png";
+
+---
+
+<section class="flex flex-col md:justify-end gap-4">
+  <main class="flex flex-col justify-center md:items-end items-center gap-2">
+    <div class="relative flex flex-col justify-center md:items-end items-center -gap-2">
+        <div class="flex flex-col md:items-end items-center">
+            <Picture class="h-[35px] w-[150px] object-contain" src={mientras} formats={['avif', 'webp']} alt="" aria-hidden="true" />
+            <span class="sr-only">{t("root.socialConnect.status")}</span>
+            <Picture class="h-[32px] w-[220px] object-contain" src={findMe} formats={['avif', 'webp']} alt="" aria-hidden="true" />
+            <span class="sr-only">{t("root.socialConnect.followMe")}</span>
+        </div>
+    </div>
+    <a class="group" href="mailto:celestemur@gmail.com">
+      <Picture class="h-[40px] w-[300px] object-contain group-hover:scale-105 transition-transform duration-300" src={mail} formats={['avif', 'webp']} alt="" aria-hidden="true" />
+      <span class="sr-only">{t("root.socialConnect.contact")}</span>
+    </a>
+  </main>
+  <nav class="flex justify-center md:justify-end items-center gap-4">
+    <a class="group" href="https://www.instagram.com/celeste_mur/" target="_blank">
+      <Picture
+        class="size-8 object-contain group-hover:scale-110 transition-transform duration-300"
+        src={instagram}
+        formats={['avif', 'webp']}
+        alt="instagram"
+      />
+    </a>
+    <a class="group" href="https://www.tiktok.com/@celeste_mur" target="_blank">
+      <Picture class="size-8 object-contain group-hover:scale-110 transition-transform duration-300" src={tiktok} formats={['avif', 'webp']} alt="tiktok"/>
+    </a>
+    <a class="group" href="https://youtube.com/channel/UCR9QUxzzrRyBl_kvgdDwOjQ/CelesteM%C3%BCr" target="_blank">
+      <Picture class="size-8 object-contain group-hover:scale-110 transition-transform duration-300" src={youtube} formats={['avif', 'webp']} alt="youtube"/>
+    </a>
+  </nav>
+</section>
